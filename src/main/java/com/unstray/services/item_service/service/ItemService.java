@@ -1,26 +1,31 @@
 package com.unstray.services.item_service.service;
 
+
+
+import com.unstray.services.item_service.dto.ClaimRequest;
 import com.unstray.services.item_service.dto.ItemRequest;
 import com.unstray.services.item_service.dto.ItemResponse;
+import com.unstray.services.item_service.enums.ClaimStatus;
+import com.unstray.services.item_service.enums.ItemStatus;
+import com.unstray.services.item_service.enums.ItemType;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public interface ItemService {
+    ItemResponse createItem(ItemRequest request);
+    List<ItemResponse> getAllItems();
+    ItemResponse getItemById(String id);
+    ItemResponse updateItem(String id, ItemRequest request);
+    void deleteItem(String id);
 
-    ItemResponse createItem(ItemRequest request) throws ExecutionException, InterruptedException;
+    List<ItemResponse> getItemsByType(ItemType type);
+    List<ItemResponse> getItemsByStatus(ItemStatus status);
+    List<ItemResponse> getItemsByCategory(String category);
+    List<ItemResponse> getItemsByLocation(String location);
+    List<ItemResponse> getItemsByTypeAndStatus(ItemType type, ItemStatus status);
+    List<ItemResponse> getItemsByUser(Long userId);
 
-    ItemResponse getItemById(String id) throws ExecutionException, InterruptedException;
-
-    List<ItemResponse> getAllItems() throws ExecutionException, InterruptedException;
-
-    List<ItemResponse> getItemsByType(String type) throws ExecutionException, InterruptedException;
-
-    List<ItemResponse> getItemsByCategory(String category) throws ExecutionException, InterruptedException;
-
-    ItemResponse updateItem(String id, ItemRequest request) throws ExecutionException, InterruptedException;
-
-    ItemResponse markAsClaimed(String id) throws ExecutionException, InterruptedException;
-
-    void deleteItem(String id) throws ExecutionException, InterruptedException;
+    ItemResponse updateItemStatus(String id, ItemStatus status);
+    ItemResponse submitClaim(String id, ClaimRequest request);
+    ItemResponse resolveClaim(String id, String claimId, ClaimStatus status);
 }
