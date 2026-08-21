@@ -1,41 +1,36 @@
 package com.unstray.services.item_service.document;
 
-import com.google.cloud.firestore.annotation.DocumentId;
-import com.google.cloud.firestore.annotation.IgnoreExtraProperties;
 import com.unstray.services.item_service.enums.ItemStatus;
 import com.unstray.services.item_service.enums.ItemType;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@IgnoreExtraProperties
-@Getter
-@Setter
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Document(collection = "items")
 public class Item {
 
-    @DocumentId
+    @Id
     private String id;
-
     private String title;
-
     private String description;
-
     private String category;
-
     private ItemType type;
-
-    private String location;
-
-    private String date; // Stored as ISO String (e.g. "2026-08-16")
-
     private ItemStatus status;
-
-    private Long reportedBy;
-
-    private String createdAt; // Stored as ISO DateTime String (e.g. "2026-08-16T10:15:30")
-
-    private String updatedAt; // Stored as ISO DateTime String
-
+    private String location;
+    private LocalDateTime date;
     private String imageUrl;
+    private Long reportedBy;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    @Builder.Default
+    private List<Claim> claims = new ArrayList<>();
 }
