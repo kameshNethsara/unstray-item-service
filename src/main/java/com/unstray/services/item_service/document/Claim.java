@@ -15,8 +15,10 @@ import java.time.LocalDateTime;
 public class Claim {
     private String claimId;
     private Long claimerId;
+    private String claimerName;
     private String proofDescription;
     private String contactPhone;
+    private String contactEmail;
     private ClaimStatus status;
     private LocalDateTime createdAt;
 }

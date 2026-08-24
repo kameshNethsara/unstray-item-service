@@ -26,8 +26,14 @@ public class Item {
     private ItemStatus status;
     private String location;
     private LocalDateTime date;
-    private String imageUrl;
+    private List<String> imageUrls = new ArrayList<>();
     private Long reportedBy;
+
+    // --- Owner Fields ---
+    private String ownerName;
+    private String ownerEmail;
+    private String ownerPhone;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
