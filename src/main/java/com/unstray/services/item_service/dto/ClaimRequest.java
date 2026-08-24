@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ClaimRequest {
     private Long claimerId;
+    private String claimerName;
     private String proofDescription;
     private String contactPhone;
+    private String contactEmail;
 }

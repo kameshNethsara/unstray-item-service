@@ -4,6 +4,7 @@ import com.unstray.services.item_service.enums.ItemType;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -16,6 +17,10 @@ public class ItemRequest {
     private ItemType type;
     private String location;
     private LocalDateTime date;
-    private String imageUrl;
+    private List<String> imageUrls;
     private Long reportedBy;
+
+    private String ownerName;
+    private String ownerEmail;
+    private String ownerPhone;
 }

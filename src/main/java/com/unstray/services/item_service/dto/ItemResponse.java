@@ -21,9 +21,13 @@ public class ItemResponse {
     private ItemStatus status;
     private String location;
     private LocalDateTime date;
-    private String imageUrl;
+    private List<String> imageUrls;
     private Long reportedBy;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private List<Claim> claims;
+    private List<ClaimResponse> claims;
+
+    private String ownerName;
+    private String ownerEmail;
+    private String ownerPhone;
 }
