@@ -10,7 +10,7 @@ spring:
   application:
     name: item-service
   config:
-    import: "optional:configserver:http://10.160.0.3:8888"
+    import: "optional:configserver:http://10.160.0.4:8888"
 #
 #  data:
 #    mongodb:
